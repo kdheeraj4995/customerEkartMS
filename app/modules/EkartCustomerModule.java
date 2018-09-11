@@ -5,6 +5,8 @@ import com.google.inject.AbstractModule;
 import com.typesafe.config.Config;
 import org.mongodb.morphia.Datastore;
 import play.Environment;
+import services.ICustomerService;
+import services.implementations.CustomerService;
 import utils.Constants;
 
 import javax.inject.Inject;
@@ -27,5 +29,6 @@ public class EkartCustomerModule extends AbstractModule {
     @Override
     protected void configure() {
         bind(Datastore.class).toInstance(new MongoProvider(config, Constants.context).getDatastore());
+        bind(ICustomerService.class).to(CustomerService.class);
     }
 }

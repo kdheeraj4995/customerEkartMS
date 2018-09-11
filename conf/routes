@@ -2,4 +2,4 @@
 GET        /customer              com.dheeraj.security.controllers.InfoController.aboutMe
 GET        /customer/about        com.dheeraj.security.controllers.InfoController.aboutMe
 
-
+GET        /customer/:customerId
