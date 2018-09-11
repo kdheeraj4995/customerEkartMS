@@ -9,40 +9,29 @@ import org.mongodb.morphia.annotations.Entity;
 
 @Entity(noClassnameStored = true, value = "customer")
 public class Customer extends BaseModelWithDate {
-    private String status;
+    private String firstName;
+    private String lastName;
+    private AccountStatus accountStatus;
     private String emailId;
     private boolean twoStepVerification;
     private String msisdn;
 
-    public String getStatus() {
-        return status;
-    }
+    public enum AccountStatus {
+        ACTIVE("ACTIVE"),
+        INACTIVE("INACTIVE");
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
+        private String value;
 
-    public String getEmailId() {
-        return emailId;
-    }
+        AccountStatus(String value) {
+            this.value = value;
+        }
 
-    public void setEmailId(String emailId) {
-        this.emailId = emailId;
-    }
+        public String getValue() {
+            return value;
+        }
 
-    public boolean isTwoStepVerification() {
-        return twoStepVerification;
-    }
-
-    public void setTwoStepVerification(boolean twoStepVerification) {
-        this.twoStepVerification = twoStepVerification;
-    }
-
-    public String getMsisdn() {
-        return msisdn;
-    }
-
-    public void setMsisdn(String msisdn) {
-        this.msisdn = msisdn;
+        public void setValue(String value) {
+            this.value = value;
+        }
     }
 }
