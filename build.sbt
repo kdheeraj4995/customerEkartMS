@@ -7,6 +7,8 @@ lazy val root = (project in file(".")).enablePlugins(PlayJava).disablePlugins(Pl
 
 scalaVersion := "2.12.4"
 
+PlayKeys.devSettings := Seq("play.server.http.port" -> "9000")
+
 libraryDependencies ++= Seq(
   guice,
   "com.dheeraj" % "dbProvider" % "0.0.1-SNAPSHOT",

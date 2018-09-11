@@ -1,5 +1,7 @@
 package controllers;
 
+import com.dheeraj.security.annotations.EkartAuthenticator;
+import com.dheeraj.security.models.EkartTokenType;
 import com.dheeraj.utility.helper.Response;
 import play.mvc.*;
 
@@ -15,8 +17,5 @@ public class EkartCustomer extends Controller {
      * this method will be called when the application receives a
      * <code>GET</code> request with a path of <code>/</code>.
      */
-    public Result index() {
-        return Response.okAsJSON("Ekart Customer Micro Service");
-    }
 
 }
