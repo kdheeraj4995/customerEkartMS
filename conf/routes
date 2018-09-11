@@ -1,5 +1,5 @@
 # An example controller showing a sample home page
-GET        /customer              com.dheeraj.security.controllers.InfoController.aboutMe
-GET        /customer/about        com.dheeraj.security.controllers.InfoController.aboutMe
+GET        /customer                    com.dheeraj.security.controllers.InfoController.aboutMe
+GET        /customer/about              com.dheeraj.security.controllers.InfoController.aboutMe
 
-GET        /customer/:customerId
+GET        /customer/:customerId        controllers.CustomerController.getCustomer(customerId: String)

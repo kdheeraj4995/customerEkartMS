@@ -1,7 +1,8 @@
 package models;
 
 import models.base.BaseModelWithDate;
-import org.bson.codecs.pojo.annotations.BsonProperty;
+import models.enums.AccountStatus;
+import org.mongodb.morphia.annotations.Embedded;
 import org.mongodb.morphia.annotations.Entity;
 
 /**
@@ -10,32 +11,12 @@ import org.mongodb.morphia.annotations.Entity;
 
 @Entity(noClassnameStored = true, value = "customer")
 public class Customer extends BaseModelWithDate {
+
     private String firstName;
     private String lastName;
-    private AccountStatus accountStatus;
-
-//    private String emailId;
-//    private boolean twoStepVerification;
-//    private String msisdn;
-
-    public enum AccountStatus {
-        ACTIVE("ACTIVE"),
-        INACTIVE("INACTIVE");
-
-        private String value;
-
-        AccountStatus(String value) {
-            this.value = value;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        public void setValue(String value) {
-            this.value = value;
-        }
-    }
+    private String emailId;
+    @Embedded
+    private AccountDetails accountDetails;
 
     public String getFirstName() {
         return firstName;
@@ -53,11 +34,19 @@ public class Customer extends BaseModelWithDate {
         this.lastName = lastName;
     }
 
-    public AccountStatus getAccountStatus() {
-        return accountStatus;
+    public String getEmailId() {
+        return emailId;
     }
 
-    public void setAccountStatus(AccountStatus accountStatus) {
-        this.accountStatus = accountStatus;
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
+    }
+
+    public AccountDetails getAccountDetails() {
+        return accountDetails;
+    }
+
+    public void setAccountDetails(AccountDetails accountDetails) {
+        this.accountDetails = accountDetails;
     }
 }

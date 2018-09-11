@@ -6,7 +6,7 @@ package utils;
  * Date: 18/06/18
  */
 public class Constants {
-    public final static String context = "shop";
+    public final static String context = "customer";
 
     public class StatusCodes {
         public final static int OK = 200;
